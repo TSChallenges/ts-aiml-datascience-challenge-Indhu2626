@@ -9,7 +9,7 @@ def load_data(filepath):
     """
     Load the dataset into a pandas DataFrame.
     """
-    df = pd.csv#todo
+    df = pd.read_csv(filepath)#todo
     return df
 
 def check_missing_values(df):
@@ -53,7 +53,7 @@ def visualize_distributions(df):
 
 def main():
     # Load data
-    df = load_data("copythefilepath")
+    df = load_data("/workspaces/ts-aiml-datascience-challenge-Indhu2626/data/bank_churn.csv")
 
     # Check for missing values
     check_missing_values(df)
