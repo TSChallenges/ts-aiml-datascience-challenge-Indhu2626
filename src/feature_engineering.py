@@ -18,11 +18,11 @@ def handle_missing_values(df):
     df['age'].fillna(df['age'].median(),inplace=True)
     df['tenure'].fillna(df['tenure'].median(),inplace=True)
     df['estimated_salary'].fillna(df['estimated_salary'].median(),inplace=True)
-    df['balance'].fillna(df['balance'].median(),inplace=True)
-    df['products_number'].fillna(df['products_number'].median(),inplace=True)
-    df['gender'].fillna(df['gender'].median(),inplace=True)
-    df['credit_card'].fillna(df['credit_card'].median(),inplace=True)
-    df['active_number'].fillna(df['active_number'].median(),inplace=True)
+    df['balance'].fillna(0,inplace=True)
+    df['products_number'].fillna(df['products_number'].mode(),inplace=True)
+    df['gender'].fillna(df['gender'].mode(),inplace=True)
+    df['credit_card'].fillna(df['credit_card'].mode(),inplace=True)
+    df['active_member'].fillna(df['active_member'].mode(),inplace=True)
 
     return df
 
@@ -39,7 +39,7 @@ def encode_categorical_features(df):
     Encode categorical features using Label Encoding.
     """
     le = LabelEncoder()
-    categorical_cols = ['country', 'gender', 'credit_card']
+    categorical_cols = ['country', 'gender', 'credit_card','age_group']
    
     # todo: run a loop to fit each column into le
     for col in categorical_cols:
